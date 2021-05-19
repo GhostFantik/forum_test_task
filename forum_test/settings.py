@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'mptt',
     'haystack',
     'widget_tweaks',
+    'drf_yasg',
 
     'machina',
     'machina.apps.forum',
