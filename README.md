@@ -31,3 +31,10 @@ python django + drf + то, что указано в requirements.txt
 ```
 docker-compose up -d --build
 ```
+Для создания БД и суперпользователя
+
+```
+docker-compose exec django python manage.py migrate
+
+docker-compose exec django python manage.py createsuperuser
+```
