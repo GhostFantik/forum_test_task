@@ -31,10 +31,11 @@ python django + drf + то, что указано в requirements.txt
 ```
 docker-compose up -d --build
 ```
-Для создания БД и суперпользователя
+
+Устанавливаем бэкап БД и создаем суперпользователя
 
 ```
-docker-compose exec django python manage.py migrate
+docker exec -i db_container_name sh -c 'exec mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" db_name' < forum_test.sql
 
 docker-compose exec django python manage.py createsuperuser
 ```
