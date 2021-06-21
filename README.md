@@ -36,10 +36,17 @@ docker-compose up -d --build
 
 Устанавливаем бэкап БД и создаем суперпользователя
 
-```
+```shell
 docker exec -i db_container_name sh -c 'exec mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" $MYSQL_DATABASE' < forum_test.sql
 
 где db_container_name - с большой вероятностью будет иметь имя forum_test_db_1
 
 docker-compose exec django python manage.py createsuperuser
+```
+
+В случае возникновения ошибок на windows, используйте:
+```shell
+docker cp forum_test.sql forum_test_db_1:/root/bkp.sql
+
+docker exec -i forum_test_db_1 sh -c 'exec mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" $MYSQL_DATABASE < /root/bkp.sql'
 ```
