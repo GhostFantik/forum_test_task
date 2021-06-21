@@ -11,6 +11,8 @@
 Дополнительное задание (по желанию)
 Создать celery task для отправки email пользователю в момент, когда он начал отслеживать форум.
 
+В requirements находится пакет для форума.
+
 ## Стек
 
 ### front
@@ -35,7 +37,9 @@ docker-compose up -d --build
 Устанавливаем бэкап БД и создаем суперпользователя
 
 ```
-docker exec -i db_container_name sh -c 'exec mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" db_name' < forum_test.sql
+docker exec -i db_container_name sh -c 'exec mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" $MYSQL_DATABASE' < forum_test.sql
+
+где db_container_name - с большой вероятностью будет иметь имя forum_test_db_1
 
 docker-compose exec django python manage.py createsuperuser
 ```
