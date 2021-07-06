@@ -49,3 +49,6 @@ celerybeat-schedule
 
 /media/
 
+# Idea
+.idea/
+

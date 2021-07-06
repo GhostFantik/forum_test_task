@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'haystack',
     'widget_tweaks',
     'drf_yasg',
+    'corsheaders',
 
     'machina',
     'machina.apps.forum',
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -201,3 +204,5 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+
+CORS_ALLOW_ALL_ORIGINS = True

@@ -242,3 +242,6 @@ README.md
 /docker/
 .env.example
 .idea/*
+
+# frontend
+web/
