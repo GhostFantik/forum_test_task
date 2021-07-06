@@ -90,6 +90,7 @@ export default {
           this.next = response.data.next;
           this.previous = response.data.previous;
         });
+      this.currentPage = 1;
     },
     nextPage() {
       if (this.next !== null) {
